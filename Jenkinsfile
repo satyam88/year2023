@@ -71,6 +71,19 @@ pipeline {
               }
            }
         }
+        stage('Upload the docker Image to Nexus') {
+           steps {
+              script {
+                 withCredentials([usernamePassword(credentialsId: 'nexuscred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                 sh 'docker login http://65.2.150.176:8085/repository/year2023/ -u admin -p ${PASSWORD}'
+                 echo "Push Docker Image to Nexus : In Progress"
+                 sh 'docker tag year2023 65.2.150.176:8085/year2023:latest'
+                 sh 'docker push 65.2.150.176:8085/year2023'
+                 echo "Push Docker Image to Nexus : Completed"
+                 }
+              }
+            }
+        }
         stage('Delete the docker images after upload') {
             steps {
                 sh 'java --version'
