@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class feb {
     @GetMapping("/myfeb")
-    public String getData() {return  "Jan has 3 long weekend"; }
+    public String getData() {return  "Jan has 3 hello weekend"; }
 }
