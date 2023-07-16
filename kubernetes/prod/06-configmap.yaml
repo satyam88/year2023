@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-year2023-application-config
+  namespace: dev
+  labels:
+    env: dev
+    app: year2023-ms
+    layer: frontend
+data:
+  application.properties: |-

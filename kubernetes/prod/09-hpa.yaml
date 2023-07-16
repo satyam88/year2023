@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: dev-year2023-hpa
+  namespace: dev
+  labels:
+    env: dev
+    app: year2023-ms
+    layer: frontend
+spec:
+  maxReplicas: 5
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: dev-year2023-deployment
+  targetCPUUtilizationPercentage: 80

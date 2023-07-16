@@ -77,5 +77,11 @@ pipeline {
                 sh 'docker images'
             }
         }
+        stage('Deploy App to K8s Cluster') {
+            steps {
+                sh 'whoami'
+                sh 'kubectl apply -f kubernetes/prod'
+            }
+        }
     }
 }
