@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: year2023.connectingclouds.in
+    - host: dev-year2023.connectingclouds.in
       http:
         paths:
           - pathType: Prefix
