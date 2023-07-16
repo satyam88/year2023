@@ -73,7 +73,6 @@ pipeline {
         }
         stage('Delete the docker images after upload') {
             steps {
-#                sh 'docker rmi -f $(docker images -aq)'
                 sh 'docker images'
             }
         }
